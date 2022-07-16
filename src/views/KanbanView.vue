@@ -22,14 +22,19 @@ v-container
         h3 Concluídos
         div.pt-2(v-for="task in tasksCompleted")
           p {{ task.name }}
-          
+  form-to-do
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import Form from '@/components/Form.vue';
+import { mapGetters } from 'vuex';
+
 export default {
+  components: {
+    'form-to-do': Form,
+  },
   computed: {
     ...mapGetters(['tasksToDo', 'tasksCompleted'])
   }
-}
+};
 </script>
