@@ -8,6 +8,12 @@ export default new Vuex.Store({
     tasks: [],
   },
   getters: {
+    tasksToDo(state) {
+      return state.tasks.filter(task => task.isDone !== true)
+    },
+    tasksCompleted(state) {
+      return state.tasks.filter(task => task.isDone === true)
+    },
   },
   mutations: {
     setTasks(state, payload) {
