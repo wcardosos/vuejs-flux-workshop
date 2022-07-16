@@ -1,15 +1,9 @@
-<template>
-  <hello-world />
+<template lang="pug">
+p Home
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
-
-  export default {
-    name: 'Home',
-
-    components: {
-      HelloWorld,
-    },
-  }
+export default {
+  name: 'Home',
+}
 </script>
