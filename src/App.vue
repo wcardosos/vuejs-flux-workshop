@@ -5,18 +5,8 @@ v-app
     color="primary"
     dark
   )
-    div.my-auto
+    div
       p To Do
-
-    v-spacer
-
-    v-btn(
-      href="https://github.com/vuetifyjs/vuetify/releases/latest"
-      target="_blank"
-      text
-    )
-      span.mr-2 Latest Release
-      v-icon mdi-open-in-new
 
   v-main
     router-view
