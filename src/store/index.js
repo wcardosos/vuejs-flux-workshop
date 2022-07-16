@@ -19,6 +19,9 @@ export default new Vuex.Store({
     setTasks(state, payload) {
       state.tasks.push(payload);
     },
+    removeTask(state, payload) {
+      state.tasks.splice(payload, 1);
+    },
     doneTask(state, payload) {
       state.tasks[payload].isDone = true;
     },
@@ -34,6 +37,9 @@ export default new Vuex.Store({
       };
 
       commit('setTasks', task);
+    },
+    removeTask({ commit }, index) {
+      commit('removeTask', index);
     },
     doneTask({ commit }, index) {
       commit('doneTask', index);

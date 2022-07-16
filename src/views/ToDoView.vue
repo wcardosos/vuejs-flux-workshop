@@ -8,12 +8,19 @@ v-container
       v-if="tasks.length"
       v-for="(task, index) in tasks"
     )
-      v-checkbox(
-        :label="task.name"
-        :checked="task.isDone"
-        color="primary"
-        @click="task.isDone ? undoneOneTask(index) : doneOneTask(index)"
-      )
+      v-row.d-flex.space-between.align-center
+        v-checkbox(
+          :label="task.name"
+          :checked="task.isDone"
+          color="primary"
+          @click="task.isDone ? undoneTask(index) : doneTask(index)"
+        )
+        v-btn(
+          plain
+          color="red"
+          @click="removeTask(index)"
+        ) Remover
+
 </template>
 
 <script>
@@ -25,13 +32,7 @@ export default {
     'form-to-do': Form,
   },
   methods: {
-    ...mapActions([ 'doneTask', 'undoneTask' ]),
-    doneOneTask(index) {
-      this.doneTask(index);
-    },
-    undoneOneTask(index) {
-      this.undoneTask(index);
-    },
+    ...mapActions([ 'doneTask', 'undoneTask', 'removeTask' ]),
   },
   computed: {
     ...mapState(['tasks']),
