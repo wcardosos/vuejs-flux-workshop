@@ -5,11 +5,43 @@ v-container
       v-icon(color="primary" x-large) task_alt
     v-col.mb-4
       h1.display-2.font-weight-bold.mb-3 Organize suas tarefas
-      p.subheading.font-weight-regular Faça o que você precisa
+      p.subheading.font-weight-regular Facilite seu dia
+  div.pt-6
+    h2 Tarefas de hoje
+    v-row.d-flex.space-between.pt-4
+      v-col
+        v-sheet.text-center.px-4.py-4(
+          color="grey lighten-4"
+          elevation="1"
+          height="300"
+          width="400"
+        )
+          h1.task-count {{ tasksToDoCount }}
+          h2.mt-4 Tarefas concluídas
+      v-col
+        v-sheet.text-center.px-4.py-4(
+          color="grey lighten-4"
+          elevation="1"
+          height="300"
+          width="400"
+        )
+          h1.task-count  {{ tasksCompletedCount }}
+          h2.mt-4 Tarefas pendentes
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'Home',
+  computed: {
+    ...mapGetters(['tasksToDoCount', 'tasksCompletedCount'])
+  }
 }
 </script>
+
+<style>
+.task-count {
+  font-size: 96px;
+}
+</style>

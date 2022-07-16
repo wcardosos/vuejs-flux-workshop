@@ -11,8 +11,14 @@ export default new Vuex.Store({
     tasksToDo(state) {
       return state.tasks.filter(task => task.isDone !== true)
     },
+    tasksToDoCount(state, getters) {
+      return getters.tasksToDo.length
+    },
     tasksCompleted(state) {
       return state.tasks.filter(task => task.isDone === true)
+    },
+    tasksCompletedCount(state, getters) {
+      return getters.tasksCompleted.length
     },
   },
   mutations: {
