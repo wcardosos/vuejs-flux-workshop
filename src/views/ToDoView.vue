@@ -15,24 +15,22 @@ v-container
           color="primary"
           @click="task.isDone ? undoneTask(index) : doneTask(index)"
         )
-        v-btn(
-          plain
-          color="red"
-          @click="removeTask(index)"
-        ) Remover
+        remove-button
 
 </template>
 
 <script>
 import Form from '@/components/Form.vue';
+import RemoveButton from '@/components/RemoveButton.vue';
 import { mapActions, mapState } from 'vuex';
 
 export default {
   components: {
     'form-to-do': Form,
+    'remove-button': RemoveButton,
   },
   methods: {
-    ...mapActions([ 'doneTask', 'undoneTask', 'removeTask' ]),
+    ...mapActions([ 'doneTask', 'undoneTask' ]),
   },
   computed: {
     ...mapState(['tasks']),

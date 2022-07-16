@@ -10,8 +10,15 @@ v-container
         width="400"
       )
         h3 A fazer
-        div.pt-2(v-for="task in tasksToDo")
-          p {{ task.name }}
+        div.px-4.pt-6(v-for="task in tasksToDo")
+          v-row.d-flex.align-center
+            p {{ task.name }}
+            remove-button
+            v-btn(
+              plain
+              color="primary"
+              @click="removeTask(index)"
+            ) Concluir
     v-col
       v-sheet.px-4.py-4(
         color="grey lighten-4"
@@ -21,17 +28,26 @@ v-container
       )
         h3 Concluídos
         div.pt-2(v-for="task in tasksCompleted")
-          p {{ task.name }}
+          v-row.d-flex.align-center
+            p {{ task.name }}
+            remove-button
+            v-btn(
+              plain
+              color="primary"
+              @click="removeTask(index)"
+            ) Desfazer
   form-to-do
 </template>
 
 <script>
 import Form from '@/components/Form.vue';
+import RemoveButton from '@/components/RemoveButton.vue';
 import { mapGetters } from 'vuex';
 
 export default {
   components: {
     'form-to-do': Form,
+    'remove-button': RemoveButton,
   },
   computed: {
     ...mapGetters(['tasksToDo', 'tasksCompleted'])
