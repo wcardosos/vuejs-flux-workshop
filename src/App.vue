@@ -1,24 +1,27 @@
 <template lang="pug">
 v-app
-  v-app-bar(
-    app
-    color="primary"
-    dark
-  )
-    div
-      p To Do
+  sidebar
 
   v-main
     router-view
 </template>
 
 <script>
+import Sidebar from '@/components/Sidebar.vue';
 
 export default {
   name: 'App',
-
+  components: {
+    Sidebar,
+  },
   data: () => ({
     //
   }),
 };
 </script>
+
+<style>
+a {
+  text-decoration: none;
+}
+</style>
