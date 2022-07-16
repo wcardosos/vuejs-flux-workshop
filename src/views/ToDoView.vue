@@ -11,7 +11,7 @@ v-container
       v-row.d-flex.space-between.align-center
         v-checkbox(
           :label="task.name"
-          :checked="task.isDone"
+          :input-value="task.isDone"
           color="primary"
           @click="task.isDone ? undoneTask(index) : doneTask(index)"
         )
