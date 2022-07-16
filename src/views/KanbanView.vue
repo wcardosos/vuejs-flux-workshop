@@ -2,45 +2,20 @@
 v-container
   h1 Kanban
   v-row.d-flex.space-between.pt-4
-    v-col
-      v-sheet.px-4.py-4(
-        color="grey lighten-4"
-        elevation="1"
-        min-height="400"
-        width="400"
-      )
-        h3 A fazer
-        div.px-4.pt-6(v-for="task in tasksToDo")
-          v-row.d-flex.align-center
-            p {{ task.name }}
-            remove-button
-            v-btn(
-              plain
-              color="primary"
-              @click="removeTask(index)"
-            ) Concluir
-    v-col
-      v-sheet.px-4.py-4(
-        color="grey lighten-4"
-        elevation="1"
-        min-height="400"
-        width="400"
-      )
-        h3 Concluídos
-        div.pt-2(v-for="task in tasksCompleted")
-          v-row.d-flex.align-center
-            p {{ task.name }}
-            remove-button
-            v-btn(
-              plain
-              color="primary"
-              @click="removeTask(index)"
-            ) Desfazer
+    kanban-tasks-list(
+      title="A fazer"
+      :tasks="tasksToDo"
+    )
+    kanban-tasks-list(
+      title="Concluídos"
+      :tasks="tasksCompleted"
+    )
   form-to-do
 </template>
 
 <script>
 import Form from '@/components/Form.vue';
+import KanbanTasksList from '@/components/KanbanTasksList.vue';
 import RemoveButton from '@/components/RemoveButton.vue';
 import { mapGetters } from 'vuex';
 
@@ -48,6 +23,7 @@ export default {
   components: {
     'form-to-do': Form,
     'remove-button': RemoveButton,
+    'kanban-tasks-list': KanbanTasksList
   },
   computed: {
     ...mapGetters(['tasksToDo', 'tasksCompleted'])
