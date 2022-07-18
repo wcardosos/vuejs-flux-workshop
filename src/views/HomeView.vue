@@ -16,7 +16,7 @@ v-container
           height="300"
           width="400"
         )
-          h1.task-count {{ tasksToDoCount }}
+          h1.task-count {{ tasksCompletedCount }}
           h2.mt-4 Tarefas concluídas
       v-col
         v-sheet.text-center.px-4.py-4(
@@ -25,7 +25,7 @@ v-container
           height="300"
           width="400"
         )
-          h1.task-count  {{ tasksCompletedCount }}
+          h1.task-count  {{ tasksToDoCount }}
           h2.mt-4 Tarefas pendentes
 </template>
 
