@@ -36,8 +36,5 @@ export default {
   components: {
     'remove-button': RemoveButton,
   },
-  methods: {
-    ...mapActions([ 'doneTask', 'undoneTask' ]),
-  },
 }
 </script>

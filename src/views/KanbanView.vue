@@ -25,8 +25,5 @@ export default {
     'remove-button': RemoveButton,
     'kanban-tasks-list': KanbanTasksList
   },
-  computed: {
-    ...mapGetters(['tasksToDo', 'tasksCompleted'])
-  }
 };
 </script>

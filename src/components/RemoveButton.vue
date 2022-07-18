@@ -7,11 +7,6 @@ v-btn(
 </template>
 
 <script>
-import { mapActions } from 'vuex';
-
 export default {
-  methods: {
-    ...mapActions([ 'removeTask' ]),
-  },
 }
 </script>

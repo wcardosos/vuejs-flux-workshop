@@ -22,18 +22,11 @@ v-container
 <script>
 import Form from '@/components/Form.vue';
 import RemoveButton from '@/components/RemoveButton.vue';
-import { mapActions, mapState } from 'vuex';
 
 export default {
   components: {
     'form-to-do': Form,
     'remove-button': RemoveButton,
   },
-  methods: {
-    ...mapActions([ 'doneTask', 'undoneTask' ]),
-  },
-  computed: {
-    ...mapState(['tasks']),
-  }
 };
 </script>
